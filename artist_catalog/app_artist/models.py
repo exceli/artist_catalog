@@ -23,10 +23,13 @@ class Album(models.Model):
 class Song(models.Model):
     """ Song model """
     name = models.CharField(max_length=255, verbose_name='Name')
-    album_number = models.PositiveIntegerField(blank=True, null=True, verbose_name='Song number in album')
-    artist = models.ForeignKey('Artist', on_delete=models.PROTECT, blank=True, null=True, verbose_name='Artist')
+    album_number = models.PositiveSmallIntegerField(blank=True, null=True, verbose_name='Song number in album')
     album = models.ForeignKey('Album', on_delete=models.PROTECT, blank=True, null=True, verbose_name='Album')
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        unique_together = ('album', 'name', 'album_number')
+
 
