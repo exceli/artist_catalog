@@ -2,9 +2,13 @@
 
 
 
-## Install
+## Get start
 
 ```
-pip install -r requirements.txt
+git clone https://github.com/exceli/artist_catalog.git
+
+cd artist_catalog/artist_catalog
+
+docker-compose up
 ```
 
