@@ -39,9 +39,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path("admin/", admin.site.urls),
-    path('api/v1/songs/', SongAPIList.as_view()),
-    path('api/v1/artists/', ArtistAPIList.as_view()),
-    path('api/v1/albums/', AlbumAPIList.as_view()),
+    path('api/v1/', include('app_artist.urls')),
     path('api/v1/auth/', include('djoser.urls')),
     re_path(r'^auth/', include('djoser.urls.authtoken')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
